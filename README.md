@@ -1,5 +1,5 @@
 # FadMad
-An open-source pvp-practice core for PocketMine-MP.
+An open-source pvp-practice core for PocketMine-MP. This originally was made for my server and i've decided to release it for public because why not.
 
 ## Commands:
 | Command | Arguments | Permission|
@@ -10,7 +10,7 @@ An open-source pvp-practice core for PocketMine-MP.
 | /rank | [player] [rank] | server.admin|
 | /vanish | [null] | server.staff|
 | /shop | [null] | everyone|
-| /settag | [null] | everyone]
+| /settag | [null] | everyone|
 | /report | [player] [reason] | everyone|
 | /warp | [null] | everyone|
 | /ping | [null] | everyone|
@@ -42,9 +42,7 @@ An open-source pvp-practice core for PocketMine-MP.
 Download the complied version from poggit and them make sure to generate the following worlds (Gapple, PE, PvP, Soup, Combo) and set default world name to Hub otherwise the plugin breaks.
 
 ## Additional Information
-- The tags can't be changed because most of things are hard-coded. This originally was made for my server and i've decided to release it for public because why not.
+- The tags can't be changed because most of things are hard-coded.
 - The shop is for purchasing non-paid tags however there's premium tags with cannt be purchased from the shop.
 - Edit the config.yml to change the server name and the website.
-
-## Reviewing
-- If you review it on youtube don't change the author or add a link with traffic ads otherwise you'll get a copyright for providing un-official links for the project.
+- Do not change the author of the plugin, selling it or providing unofficial links for the project.
