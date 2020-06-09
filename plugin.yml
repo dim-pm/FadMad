@@ -20,7 +20,10 @@ commands:
   leaderboard:
     description: Shows the leaderboards
 permissions:
-  core.admin:
-    description: "admin"
+  server.admin:
+    description: "Access to all commands"
+    default: op
+  server.staff:
+    description: "Staff commands"
     default: op
 ...
