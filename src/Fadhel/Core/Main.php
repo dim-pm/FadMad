@@ -246,7 +246,7 @@ class Main extends PluginBase implements Listener
                 }
                 break;
             case "version":
-                $sender->sendMessage("§6================================\n§7GitHub: github.com/Dim9999\n§3Twitter: twitter.com/FadhelFS_\n§cYouTube: youtube.com/c/FadhelFS\n§6================================");
+                $sender->sendMessage("§6================================\n§7GitHub: github.com/DimBis/FadMad\n§3Twitter: twitter.com/DevDim_\n§cYouTube: youtube.com/c/FadhelFS\n§6================================");
         }
         return true;
     }
@@ -569,7 +569,7 @@ class Main extends PluginBase implements Listener
             $player->getInventory()->addItem($sword);
             $player->getInventory()->addItem(Item::get(282, 0, 35));
             $player->getInventory()->setItem(1, Item::get(368, 0, 12));
-            $player->getInventory()->setItem(2, Item::get(364, 0, 32));
+            $player->getInventory()->setItem(2, Item::get(364, 0, 32)->setCustomName("§r§aSoup");
             $player->setFood(20);
         } elseif ($itemname === "§r§l§9Gapple Kit") {
             $player->getInventory()->clearAll();
