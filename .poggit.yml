@@ -1,0 +1,10 @@
+--- # Poggit-CI Manifest. Open the CI at https://poggit.pmmp.io/ci/DimBis/FadMad
+build-by-default: true
+branches:
+- master
+projects:
+  FadMad:
+    path: ""
+    lint:
+      phpstan: false
+...
