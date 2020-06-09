@@ -1,5 +1,23 @@
 <?php
 
+/**
+ * Copyright 2020 Fadhel
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+declare(strict_types=1);
+
 namespace Fadhel\Core;
 
 use Fadhel\Core\commands\Add;
@@ -69,7 +87,7 @@ class Main extends PluginBase implements Listener
         $this->getServer()->getCommandMap()->unregister($this->getServer()->getCommandMap()->getCommand("version"));
     }
 
-    public function onEnable()
+    public function onEnable(): void
     {
         $this->db = new \SQLite3($this->getDataFolder() . "master.db");
         $this->db->exec("CREATE TABLE IF NOT EXISTS master (player TEXT PRIMARY KEY COLLATE NOCASE, kills INT , deaths INT , lvl INT , xp INT , streak INT , rank TEXT , tag TEXT);");
@@ -344,7 +362,7 @@ class Main extends PluginBase implements Listener
     /**
      * @param Player $player
      */
-    public function stats(Player $player)
+    public function stats(Player $player): void
     {
         $form = new SimpleForm(function (Player $event, $data) {
             $player = $event->getPlayer();
@@ -384,7 +402,7 @@ class Main extends PluginBase implements Listener
     /**
      * @param PlayerInteractEvent $event
      */
-    public function onClick(PlayerInteractEvent $event)
+    public function onClick(PlayerInteractEvent $event): void
     {
         $player = $event->getPlayer();
         $itemname = $event->getPlayer()->getInventory()->getItemInHand()->getCustomName();
@@ -569,7 +587,7 @@ class Main extends PluginBase implements Listener
             $player->getInventory()->addItem($sword);
             $player->getInventory()->addItem(Item::get(282, 0, 35));
             $player->getInventory()->setItem(1, Item::get(368, 0, 12));
-            $player->getInventory()->setItem(2, Item::get(364, 0, 32)->setCustomName("§r§aSoup");
+            $player->getInventory()->setItem(2, Item::get(364, 0, 32)->setCustomName("§r§aSoup"));
             $player->setFood(20);
         } elseif ($itemname === "§r§l§9Gapple Kit") {
             $player->getInventory()->clearAll();
@@ -609,7 +627,7 @@ class Main extends PluginBase implements Listener
     /**
      * @param Player $player
      */
-    public function NodeBuff(Player $player)
+    public function NodeBuff(Player $player): void
     {
         $form = new ModalForm(function (Player $event, $data) {
             $player = $event->getPlayer();
@@ -649,7 +667,7 @@ class Main extends PluginBase implements Listener
     /**
      * @param PlayerRespawnEvent $event
      */
-    public function onRespawn(PlayerRespawnEvent $event)
+    public function onRespawn(PlayerRespawnEvent $event): void
     {
         $player = $event->getPlayer();
         $transfer = Item::get(345, 0, 1)->setCustomName(C::RESET . C::BOLD . C::AQUA . "Transfer");
@@ -698,7 +716,7 @@ class Main extends PluginBase implements Listener
     /**
      * @param PlayerJoinEvent $event
      */
-    public function onJoin(PlayerJoinEvent $event)
+    public function onJoin(PlayerJoinEvent $event): void
     {
         $player = $event->getPlayer();
         $player->setHealth(20);
@@ -743,7 +761,7 @@ class Main extends PluginBase implements Listener
     /**
      * @param PlayerDeathEvent $event
      */
-    public function onDeath(PlayerDeathEvent $event)
+    public function onDeath(PlayerDeathEvent $event): void
     {
         $event->setDrops([]);
         $event->setDeathMessage("");
@@ -752,7 +770,7 @@ class Main extends PluginBase implements Listener
     /**
      * @param EntityDamageEvent $ev
      */
-    public function onDamage(EntityDamageEvent $ev)
+    public function onDamage(EntityDamageEvent $ev): void
     {
         if ($ev->getEntity() instanceof Player) {
             $p = $ev->getEntity();
@@ -857,7 +875,7 @@ class Main extends PluginBase implements Listener
     /**
      * @param Player $player
      */
-    public function LeaderBoard(Player $player)
+    public function LeaderBoard(Player $player): void
     {
         $form = new SimpleForm(function (Player $event, $data) {
             $player = $event->getPlayer();
@@ -894,7 +912,7 @@ class Main extends PluginBase implements Listener
     /**
      * @param Player $player
      */
-    public function kills(Player $player)
+    public function kills(Player $player): void
     {
         $form = new SimpleForm(function (Player $event, $data) {
             if ($data === null) {
@@ -935,7 +953,7 @@ class Main extends PluginBase implements Listener
     /**
      * @param Player $player
      */
-    public function topcoins(Player $player)
+    public function topcoins(Player $player): void
     {
         $result = $this->coins->query("SELECT player FROM coins ORDER BY coins DESC LIMIT 10;");
         $i = 0;
@@ -981,7 +999,7 @@ class Main extends PluginBase implements Listener
     /**
      * @param Player $player
      */
-    public function streaks(Player $player)
+    public function streaks(Player $player): void
     {
         $form = new SimpleForm(function (Player $event, $data) {
             if ($data === null) {
@@ -1010,7 +1028,7 @@ class Main extends PluginBase implements Listener
     /**
      * @param Player $player
      */
-    public function levels(Player $player)
+    public function levels(Player $player): void
     {
         $form = new SimpleForm(function (Player $event, $data) {
             if ($data === null) {
@@ -1039,7 +1057,7 @@ class Main extends PluginBase implements Listener
     /**
      * @param BlockBreakEvent $event
      */
-    public function onBreak(BlockBreakEvent $event)
+    public function onBreak(BlockBreakEvent $event): void
     {
         if (!$event->getPlayer()->isCreative()) {
             $event->setCancelled(true);
@@ -1049,7 +1067,7 @@ class Main extends PluginBase implements Listener
     /**
      * @param BlockPlaceEvent $event
      */
-    public function onPlace(BlockPlaceEvent $event)
+    public function onPlace(BlockPlaceEvent $event): void
     {
         if (!$event->getPlayer()->isCreative()) {
             $event->setCancelled(true);
@@ -1059,7 +1077,7 @@ class Main extends PluginBase implements Listener
     /**
      * @param PlayerExhaustEvent $event
      */
-    public function onHunger(PlayerExhaustEvent $event)
+    public function onHunger(PlayerExhaustEvent $event): void
     {
         if ($event->getPlayer()->getLevel()->getName() === "Hub") {
             $event->setCancelled(true);
@@ -1069,7 +1087,7 @@ class Main extends PluginBase implements Listener
     /**
      * @param PlayerDropItemEvent $event
      */
-    public function onDrop(PlayerDropItemEvent $event)
+    public function onDrop(PlayerDropItemEvent $event): void
     {
         if (!$event->getPlayer()->isCreative()) {
             $event->setCancelled(true);
@@ -1079,7 +1097,7 @@ class Main extends PluginBase implements Listener
     /**
      * @param PlayerCommandPreprocessEvent $event
      */
-    public function onCMD(PlayerCommandPreprocessEvent $event)
+    public function onCMD(PlayerCommandPreprocessEvent $event): void
     {
         $command = $event->getMessage();
         if ($command{0} === "/") {
@@ -2977,7 +2995,7 @@ class Main extends PluginBase implements Listener
     /**
      * @param Player $player
      */
-    public function resetStreak(Player $player)
+    public function resetStreak(Player $player): void
     {
         $stmt = $this->db->prepare("INSERT OR REPLACE INTO master (player, kills, deaths, lvl, xp, streak, rank, tag) VALUES (:player, :kills, :deaths, :lvl, :xp, :streak, :rank, :tag)");
         $stmt->bindValue(":player", $player->getName());
@@ -2998,7 +3016,7 @@ class Main extends PluginBase implements Listener
      * @param Player $player
      * @param $points
      */
-    public function addXP(Player $player, $points)
+    public function addXP(Player $player, $points): void
     {
         $stmt = $this->db->prepare("INSERT OR REPLACE INTO master (player, kills, deaths, lvl, xp, streak, rank, tag) VALUES (:player, :kills, :deaths, :lvl, :xp, :streak, :rank, :tag)");
         $stmt->bindValue(":player", $player->getName());
@@ -3015,7 +3033,7 @@ class Main extends PluginBase implements Listener
     /**
      * @param Player $player
      */
-    public function resetXP(Player $player)
+    public function resetXP(Player $player): void
     {
         $stmt = $this->db->prepare("INSERT OR REPLACE INTO master (player, kills, deaths, lvl, xp, streak, rank, tag) VALUES (:player, :kills, :deaths, :lvl, :xp, :streak, :rank, :tag)");
         $stmt->bindValue(":player", $player->getName());
@@ -3124,7 +3142,7 @@ class Main extends PluginBase implements Listener
     /**
      * @param Player $player
      */
-    public function LevelUP(Player $player)
+    public function LevelUP(Player $player): void
     {
         $xp = $this->getXP($player);
         if ($xp >= 5000) {
@@ -3138,7 +3156,7 @@ class Main extends PluginBase implements Listener
     /**
      * @param QueryRegenerateEvent $event
      */
-    public function onQuery(QueryRegenerateEvent $event)
+    public function onQuery(QueryRegenerateEvent $event): void
     {
         $event->setMaxPlayerCount($event->getPlayerCount() + 1);
         $event->setPlayerCount($event->getPlayerCount() + 0);
