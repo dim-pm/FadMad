@@ -383,7 +383,7 @@ class Main extends PluginBase implements Listener
                     $player->sendMessage("§9Your current Streaks is: §b" . $this->getStreak($player));
                     break;
                 case 4:
-                    $player->sendMessage("§9Your current XP is: §b" . $this->getXP($player));
+                    $player->sendMessage("§9Your total Coins is: §b" . $this->getCoins($player));
                     break;
                 case 5:
                     $player->sendMessage("§9Your current XP is: §b" . $this->getXP($player));
@@ -394,7 +394,7 @@ class Main extends PluginBase implements Listener
         $form->addButton("Kills\n§l§3» §r§bTotal: §9" . $this->getKills($player), 0, "textures/items/wood_sword");
         $form->addButton("Level\n§l§3» §r§9" . $this->getLevel($player), 0, "textures/items/diamond");
         $form->addButton("Streaks\n§l§3» §r§bCurrent: §9" . $this->getStreak($player), 0, "textures/items/book_writable");
-        $form->addButton("Coins\n§l§3» §r§bCurrent: §e" . $this->getCoins($player), 0, "textures/items/gold_ingot");
+        $form->addButton("Coins\n§l§3» §r§bTotal: §e" . $this->getCoins($player), 0, "textures/items/gold_ingot");
         $form->addButton("XP\n§l§3» §r§bCurrent: §9" . $this->getXP($player) . "/5000", 0, "textures/items/diamond");
         $form->sendToPlayer($player);
     }
