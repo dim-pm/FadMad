@@ -1,0 +1,26 @@
+---
+name: Core
+main: Fadhel\Core\Main
+version: 5.0.0
+api: 3.0.0
+author: Fadhel
+commands:
+  warp:
+    description: Warps
+  version:
+    aliases:
+      - ver
+      - info
+      - about
+      - server
+      - helpme
+    description: PracticeCore information
+  ping:
+    description: Shows your ping
+  leaderboard:
+    description: Shows the leaderboards
+permissions:
+  core.admin:
+    description: "admin"
+    default: op
+...
