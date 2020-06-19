@@ -67,6 +67,7 @@ use Fadhel\Core\utils\form\SimpleForm;
 use pocketmine\network\mcpe\protocol\InventoryTransactionPacket;
 use pocketmine\utils\TextFormat;
 use Fadhel\Core\commands\Tags;
+use pocketmine\entity\Entity;
 
 class Main extends PluginBase implements Listener
 {
@@ -782,8 +783,8 @@ class Main extends PluginBase implements Listener
                             if (!$player->isCreative()) {
                                 $this->fighting[$player->getName()] = "none";
                                 $lightning = new AddActorPacket();
-                                $lightning->type = 93;
-                                $lightning->entityRuntimeId = AddActorPacket::LEGACY_ID_MAP_BC[EntityIds::LIGHTNING_BOLT];
+                                $lightning->type = AddActorPacket::LEGACY_ID_MAP_BC[EntityIds::LIGHTNING_BOLT];
+                                $lightning->entityRuntimeId = Entity::$entityCount++;
                                 $lightning->metadata = [];
                                 $lightning->position = $player->asVector3()->add(0, $height = 0);
                                 $lightning->yaw = $player->getYaw();
