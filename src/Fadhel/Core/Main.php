@@ -850,7 +850,7 @@ class Main extends PluginBase implements Listener
                         if ($player->getLevel()->getName() !== "Hub") {
                             if ($player->getLevel()->getName() === "Combo" or $player->getLevel()->getName() === "Hub") {
                                 $ev->setKnockBack(0.4);
-                                $ev->setAttackCooldown(0.5);
+                                $ev->setAttackCooldown(0);
                             } else {
                                 if ($this->fighting[$player->getName()] === "none") {
                                     $levels = array("Combo", "PE", "PvP", "Gapple", "Soup");
