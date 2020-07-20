@@ -22,11 +22,10 @@ namespace Fadhel\Core\listeners;
 
 use pocketmine\Player;
 use Fadhel\Core\Main;
-use pocketmine\event\Listener;
 use pocketmine\utils\TextFormat as C;
 
 
-class Ranks implements Listener
+class Ranks
 {
     private $plugin;
 
@@ -816,7 +815,6 @@ class Ranks implements Listener
                 $this->addPermission($player, "blazinfly.command");
                 $this->addPermission($player, "cucumber.mute");
                 $this->addPermission($player, "freeze.command");
-                break;
         }
     }
 }
