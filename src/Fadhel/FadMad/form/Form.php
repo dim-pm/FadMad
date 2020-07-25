@@ -1,8 +1,8 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
-namespace Fadhel\Core\utils\form;
+namespace Fadhel\FadMad\form;
 
 use pocketmine\form\Form as IForm;
 use pocketmine\Player;
@@ -24,16 +24,6 @@ abstract class Form implements IForm
         $player->sendForm($this);
     }
 
-    public function getCallable(): ?callable
-    {
-        return $this->callable;
-    }
-
-    public function setCallable(?callable $callable)
-    {
-        $this->callable = $callable;
-    }
-
     public function handleResponse(Player $player, $data): void
     {
         $this->processData($data);
@@ -45,6 +35,16 @@ abstract class Form implements IForm
 
     public function processData(&$data): void
     {
+    }
+
+    public function getCallable(): ?callable
+    {
+        return $this->callable;
+    }
+
+    public function setCallable(?callable $callable)
+    {
+        $this->callable = $callable;
     }
 
     public function jsonSerialize()

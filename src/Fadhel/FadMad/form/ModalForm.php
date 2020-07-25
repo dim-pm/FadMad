@@ -1,8 +1,8 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
-namespace Fadhel\Core\utils\form;
+namespace Fadhel\FadMad\form;
 
 class ModalForm extends Form
 {

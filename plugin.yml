@@ -1,29 +1,10 @@
 ---
-name: Core
-main: Fadhel\Core\Main
-version: 5.0.0
+name: FadMad
+main: Fadhel\FadMad\Main
+version: 1.2.0
 api: 3.0.0
 author: Fadhel
-commands:
-  warp:
-    description: Warps
-  version:
-    aliases:
-      - ver
-      - info
-      - about
-      - server
-      - helpme
-    description: PracticeCore information
-  ping:
-    description: Shows your ping
-  leaderboard:
-    description: Shows the leaderboards
 permissions:
-  server.admin:
-    description: "Access to all commands"
-    default: op
-  server.staff:
-    description: "Staff commands"
+  fadmad.command.warp:
     default: op
 ...

@@ -1,5 +1,20 @@
 ---
-scoreboard-title: Server Name
-server-website: youtube.com/FadhelFS
-join-title: Subscribe to Fadhel
+# Form title
+form-title: "Warps list"
+# Form content
+form-content: "Pick a warp"
+# Exit button
+form-exit: "&cExit"
+
+# Warp message. Usable variables: {warp} to define the warp name
+warp-message: "&bYou warped to&3 {warp}"
+
+# Warps list
+warps:
+  - "world"
+
+# The format is "ID:META:AMOUNT:NAME" Leave it empty if you don't want to give players items
+kits:
+  world:
+    - "1:0:276:Item name"
 ...
