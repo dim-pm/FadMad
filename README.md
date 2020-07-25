@@ -18,5 +18,5 @@ Download the complied version from poggit and them make sure to generate the fol
 - Edit the config.yml to change the server name and the website.
 - Do not change the author of the plugin, selling it or providing unofficial links for the project.
 
-###3 Video Example
+#### Video Example
 [![Youtube Video](https://img.youtube.com/vi/uf1xx5VL5d0/0.jpg)](https://youtu.be/uf1xx5VL5d0?t=60)
