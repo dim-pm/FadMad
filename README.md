@@ -43,7 +43,7 @@ Download the complied version from poggit and them make sure to generate the fol
 
 ## Additional Information
 - The tags can't be changed because most of things are hard-coded.
-- The shop is for purchasing non-paid tags however there's premium tags with cannt be purchased from the shop.
+- The shop is for purchasing non-paid tags however there's premium tags with cannot be purchased from the shop.
 - Edit the config.yml to change the server name and the website.
 - Do not change the author of the plugin, selling it or providing unofficial links for the project.
 
