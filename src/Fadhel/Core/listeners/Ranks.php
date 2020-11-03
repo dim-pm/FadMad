@@ -34,7 +34,7 @@ class Ranks
         $this->plugin = $plugin;
     }
 
-    public function sendStaffAlert($msg)
+    public function sendStaffAlert(string $msg): void
     {
         foreach ($this->plugin->getServer()->getOnlinePlayers() as $staff) {
             if ($staff->hasPermission("server.staff")) {
@@ -43,11 +43,9 @@ class Ranks
         }
     }
 
-    public function getLevelFormat(Player $player)
+    public function getLevelFormat(Player $player): string
     {
-        if ($this->plugin->getLevel($player) <= 10) {
-            return "§a";
-        } elseif ($this->plugin->getLevel($player) >= 10 && $this->plugin->getLevel($player) < 20) {
+        if ($this->plugin->getLevel($player) >= 10 && $this->plugin->getLevel($player) < 20) {
             return "§2";
         } elseif ($this->plugin->getLevel($player) >= 20 && $this->plugin->getLevel($player) < 30) {
             return "§3";
@@ -60,10 +58,10 @@ class Ranks
         } elseif ($this->plugin->getLevel($player) >= 60) {
             return "§4";
         }
-        return true;
+        return "§a";
     }
 
-    public function setRank(Player $player, $rank)
+    public function setRank(Player $player, string $rank): void
     {
         $ranks = array("Default", "YouTuber", "VIP", "MVP", "Manager", "Trainee", "Moderator", "SrMod", "Admin", "Investor", "Owner", "SrAdmin", "Developer", "Builder", "Modmvp", "Traineemvp", "YT", "JrMod", "Events Manager", "TraineeYT", "ModYT", "BuilderYouTuber");
         if (in_array($rank, $ranks)) {
@@ -92,7 +90,7 @@ class Ranks
         }
     }
 
-    public function setTag(Player $player, $tag)
+    public function setTag(Player $player, string $tag): void
     {
         $tags = array("Amazing", "Toast", "EBoy", "EGirl", "OOF", "Idot", "Savage", "Triggered", "PvPGod", "TryHard", "Owner", "Nerd", "XD", "God", "Turtle", "Cookie", "Pancakes", "Boomer", "Reklaze", "Raider", "Zeus", "Toxic", "noob", "Lit", "Fadhel", "Creeper", "EnderMan", "Ps4", "Gay", "UwU", "Pyro", "Ez", "Zoomer", "Salty", "Windows10", "Dirt", "Fresh", "Enhanced", "MVP", "Ultimate", "Crusader", "Legend", "Overlord", "Experienced", "Elite", "Emperor", "King", "Gangster", "HitMan", "Mobster", "Loner", "Horion", "Injected", "Bustdown", "Pro", "Hacker", "Gucci", "Troll", "NoU", "Killer", "Gangbang", "ChugNub", "CornHub", "AndroidGod", "IOSGOD", "Cliqnt");
         if (in_array($tag, $tags)) {
@@ -132,7 +130,7 @@ class Ranks
         }
     }
 
-    public function getFormat($rank)
+    public function getFormat(string $rank): string
     {
         switch ($rank):
             case "Owner":
@@ -224,10 +222,10 @@ class Ranks
                 return $format;
                 break;
         endswitch;
-        return true;
+        return "§7[Player§7]§8 ";
     }
 
-    public function getType($tag)
+    public function getType(string $tag): string
     {
         switch ($tag):
             case "EBoy":
@@ -495,15 +493,15 @@ class Ranks
                 return $format;
                 break;
         endswitch;
-        return true;
+        return "";
     }
 
-    public function addPermission(Player $player, $permission)
+    public function addPermission(Player $player, $permission): void
     {
         $player->addAttachment($this->plugin, $permission, true);
     }
 
-    public function setPermission(Player $player)
+    public function setPermission(Player $player): void
     {
         switch ($this->plugin->getRank($player)) {
             case "Default":
