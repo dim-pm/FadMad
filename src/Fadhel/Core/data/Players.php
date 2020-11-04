@@ -38,7 +38,7 @@ class Players implements Listener
     {
         $ranks = new Ranks($this->plugin);
         $player = $event->getPlayer();
-        if (!$player->hasPlayedBefore()) {
+        if (!$this->plugin->coinExists(strtolower($player->getName()))) {
             $ranks->setPermission($player);
             $player->teleport($this->plugin->getServer()->getDefaultLevel()->getSafeSpawn());
             $db = new \SQLite3($this->plugin->getDataFolder() . "master.db");
@@ -53,8 +53,7 @@ class Players implements Listener
             $stmt->bindValue(":rank", "Default");
             $stmt->bindValue(":tag", "none");
             $stmt->execute();
-        }
-        if (!$this->plugin->coinExists(strtolower($player->getName()))) {
+
             $db = new \SQLite3($this->plugin->getDataFolder() . "coins.db");
             $db->exec("CREATE TABLE IF NOT EXISTS coins (player TEXT PRIMARY KEY COLLATE NOCASE, coins INT);");
             $stmt = $db->prepare("INSERT OR REPLACE INTO coins (player, coins) VALUES (:player, :coins)");
@@ -106,7 +105,6 @@ class Players implements Listener
             $stmt->bindValue(":androidgod", 0);
             $stmt->bindValue(":iosgod", 0);
             $stmt->execute();
-
         }
         $ranks->setPermission($player);
         $player->teleport($this->plugin->getServer()->getDefaultLevel()->getSafeSpawn());
